@@ -10,64 +10,60 @@
 </head>
 <body>
 
-    <!-- Анимированный фон -->
     <canvas id="particles"></canvas>
 
-    <!-- Навигация -->
-    <nav class="navbar glass">
-        <a href="index.html" class="logo-text" style="text-decoration: none;">WinWare</a>
-        <div class="nav-links">
+    <!-- ТА ЖЕ САМАЯ НАВИГАЦИЯ -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-text">WinWare</a>
+        
+        <div class="nav-center">
             <a href="index.html">Home</a>
-            <a href="#" class="active">Store</a> <!-- Активная вкладка -->
-            <a href="https://discord.gg/gDe7epPZ" target="_blank" class="nav-btn">Support</a>
+            <a href="#" class="active">Store</a> <!-- Подсветка Store -->
+            <a href="index.html#features">Features</a>
+            <a href="index.html#showcase">Showcase</a>
         </div>
+
+        <a href="https://discord.gg/gDe7epPZ" target="_blank" class="nav-btn">
+            <i class="fab fa-discord"></i> Support
+        </a>
     </nav>
 
     <!-- Секция Продуктов -->
     <section class="products-page">
-        <h2 class="section-title">Our Products</h2>
+        <h2 class="section-title">Select a Plan</h2>
         
         <div class="products-grid">
             
-            <!-- Продукт 1: 30 Дней -->
-            <div class="product-card glass">
+            <div class="product-card">
                 <div class="card-preview">
                     <span class="days-big">30 DAYS</span>
                 </div>
                 <div class="card-info">
                     <h3>30 Days License</h3>
                     <div class="price-tag">Price: <span class="price-val">$3</span></div>
-                    <button class="buy-btn">
-                        <i class="fas fa-shopping-basket"></i> Purchase
-                    </button>
+                    <button class="buy-btn"><i class="fas fa-shopping-basket"></i> Purchase</button>
                 </div>
             </div>
 
-            <!-- Продукт 2: 120 Дней -->
-            <div class="product-card glass">
+            <div class="product-card">
                 <div class="card-preview">
                     <span class="days-big">120 DAYS</span>
                 </div>
                 <div class="card-info">
                     <h3>120 Days License</h3>
-                    <div class="price-tag">Price: <span class="price-val">$7</span> <span class="discount">HOT</span></div>
-                    <button class="buy-btn">
-                        <i class="fas fa-shopping-basket"></i> Purchase
-                    </button>
+                    <div class="price-tag">Price: <span class="price-val">$7</span></div>
+                    <button class="buy-btn"><i class="fas fa-shopping-basket"></i> Purchase</button>
                 </div>
             </div>
 
-            <!-- Продукт 3: 1 Год -->
-            <div class="product-card glass">
+            <div class="product-card">
                 <div class="card-preview">
                     <span class="days-big">1 YEAR</span>
                 </div>
                 <div class="card-info">
                     <h3>1 Year License</h3>
-                    <div class="price-tag">Price: <span class="price-val">$15</span> <span class="discount">-20%</span></div>
-                    <button class="buy-btn">
-                        <i class="fas fa-shopping-basket"></i> Purchase
-                    </button>
+                    <div class="price-tag">Price: <span class="price-val">$15</span></div>
+                    <button class="buy-btn"><i class="fas fa-shopping-basket"></i> Purchase</button>
                 </div>
             </div>
 
@@ -76,13 +72,11 @@
 
     <!-- Модальное окно (SOON) -->
     <div id="soonModal" class="modal-overlay">
-        <div class="modal-content glass">
+        <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <div class="modal-body">
-                <i class="fas fa-clock fa-3x"></i>
-                <h1 class="gradient-text-soon">SOON</h1>
-                <p>Payment system is currently under maintenance.</p>
-            </div>
+            <i class="fas fa-clock fa-3x" style="color:#3b82f6; margin-bottom:10px;"></i>
+            <h1 class="gradient-text-soon">SOON</h1>
+            <p style="color:#888;">Payment system is under maintenance.</p>
         </div>
     </div>
 
