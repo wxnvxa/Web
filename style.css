@@ -435,3 +435,18 @@ footer { text-align: center; padding: 40px; color: #555; margin-top: auto; }
     .script-code-box { width: 100%; margin: 10px 0; }
     .script-status { align-self: flex-end; }
 }
+
+/* --- ДОПОЛНИТЕЛЬНЫЕ ЦВЕТА СТАТУСОВ --- */
+
+/* Green (Working / Stable) */
+.status-green::before { background-color: #22c55e; box-shadow: 0 0 10px rgba(34, 197, 94, 0.5); }
+.status-green .script-header h3 { color: #fff; }
+.badge-green { background: #22c55e; color: #fff; box-shadow: 0 0 10px rgba(34, 197, 94, 0.4); }
+
+/* Purple (Open Source) */
+.status-purple::before { background-color: #a855f7; box-shadow: 0 0 10px rgba(168, 85, 247, 0.5); }
+.status-purple .script-header h3 { color: #fff; }
+.badge-purple { background: #a855f7; color: #fff; box-shadow: 0 0 10px rgba(168, 85, 247, 0.4); }
+
+/* Blue Tag (No Key) */
+.tag-blue { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
