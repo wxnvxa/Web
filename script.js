@@ -112,3 +112,32 @@ if (modal && buyBtns.length > 0) {
         }
     });
 }
+
+// --- Логика копирования скрипта ---
+
+function copyToClipboard(element, text) {
+    // Копируем текст
+    navigator.clipboard.writeText(text).then(() => {
+        
+        // Показываем уведомление
+        const toast = document.getElementById('copyToast');
+        toast.classList.add('show');
+
+        // Визуальный эффект нажатия на кнопку
+        const originalIcon = element.querySelector('i').className;
+        const icon = element.querySelector('i');
+        
+        // Меняем иконку на галочку
+        icon.className = 'fas fa-check';
+        element.style.borderColor = '#4ade80';
+
+        // Через 2 секунды возвращаем всё как было
+        setTimeout(() => {
+            toast.classList.remove('show');
+            icon.className = originalIcon;
+            element.style.borderColor = ''; // Сброс цвета рамки
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+}
