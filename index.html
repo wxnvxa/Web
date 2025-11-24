@@ -5,57 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WinWare - Roblox Scripting Evolved</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Подключаем шрифт Inter для современности -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
-    <!-- Иконки FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Анимированный фон (частицы) -->
+    <!-- Анимированный фон -->
     <canvas id="particles"></canvas>
 
     <!-- Навигация -->
     <nav class="navbar glass">
         <div class="logo-text">WinWare</div>
         <div class="nav-links">
-            <a href="#">Home</a>
+            <!-- Ссылки теперь ведут на ID секций -->
+            <a href="#home">Home</a>
             <a href="#features">Features</a>
             <a href="https://discord.gg/gDe7epPZ" target="_blank" class="nav-btn">Support</a>
         </div>
     </nav>
 
-    <!-- Главный экран -->
-    <main class="hero">
-        <div class="hero-content glass-card tilt-effect">
+    <!-- Главный экран (Home) -->
+    <section id="home" class="hero">
+        <div class="hero-content glass-card">
             <div class="status-badge">
                 <span class="dot"></span> Status: <span class="status-text">Upcoming</span>
             </div>
             
-            <!-- Сюда вставь свое лого -->
             <div class="logo-container">
                 <img src="logo.png" alt="WinWare Logo" class="hero-logo">
             </div>
 
             <h1>WinWare</h1>
-            <p class="subtitle">The next generation script execution for Roblox.</p>
+            <p class="subtitle">The next generation script execution.</p>
             <p class="description">
                 Experience minimalist design combined with brutal power. 
-                WinWare provides an undetected, crashing-free environment for your favorite games.
+                WinWare provides an undetected, crashing-free environment for your favorite Roblox games.
             </p>
 
             <div class="cta-buttons">
                 <a href="https://discord.gg/gDe7epPZ" target="_blank" class="btn primary">
                     <i class="fab fa-discord"></i> Join Discord
                 </a>
-                <a href="#" class="btn secondary">
-                    <i class="fas fa-info-circle"></i> Read More
+                <a href="#features" class="btn secondary">
+                    <i class="fas fa-arrow-down"></i> Explore
                 </a>
             </div>
         </div>
-    </main>
+    </section>
 
-    <!-- Подвал -->
+    <!-- Секция Функций (Features) -->
+    <section id="features" class="features-section">
+        <h2 class="section-title">Why WinWare?</h2>
+        
+        <div class="features-grid">
+            <!-- Карточка про дизайн (как ты просил) -->
+            <div class="feature-card glass">
+                <div class="icon-box">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <h3>Stunning Design</h3>
+                <p>We focused on aesthetics. A clean, minimalist, and user-friendly interface with beautiful blur effects that looks amazing.</p>
+            </div>
+
+            <!-- Карточка про мощность -->
+            <div class="feature-card glass">
+                <div class="icon-box">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>High Performance</h3>
+                <p>Optimized for low-end PCs. Zero lag, instant execution, and maximum FPS while gaming.</p>
+            </div>
+
+            <!-- Карточка про безопасность -->
+            <div class="feature-card glass">
+                <div class="icon-box">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Undetected</h3>
+                <p>Advanced bypass methods ensure your account stays safe. Play without fear of bans.</p>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <p>&copy; 2023-2024 WinWare Client. All rights reserved.</p>
     </footer>
