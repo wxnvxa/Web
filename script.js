@@ -84,3 +84,31 @@ window.addEventListener('resize', () => {
 
 init();
 animate();
+
+// --- Логика Модального Окна (Store) ---
+
+const modal = document.getElementById('soonModal');
+const buyBtns = document.querySelectorAll('.buy-btn');
+const closeBtn = document.querySelector('.close-modal');
+
+if (modal && buyBtns.length > 0) {
+    // Открытие окна при клике на ЛЮБУЮ кнопку купить
+    buyBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault(); // Чтобы страница не прыгала
+            modal.classList.add('active');
+        });
+    });
+
+    // Закрытие по крестику
+    closeBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+    });
+
+    // Закрытие при клике вне окна
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+        }
+    });
+}
