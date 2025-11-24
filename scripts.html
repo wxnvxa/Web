@@ -18,8 +18,9 @@
         <div class="nav-center">
             <a href="index.html">Home</a>
             <a href="products.html">Store</a>
-            <a href="#" class="active">Get Script</a> <!-- Активная вкладка -->
+            <a href="#" class="active">Get Script</a>
             <a href="index.html#features">Features</a>
+            <a href="index.html#showcase">Showcase</a>
         </div>
         <a href="https://discord.gg/gDe7epPZ" target="_blank" class="nav-btn">
             <i class="fab fa-discord"></i> Support
@@ -33,8 +34,7 @@
 
         <div class="scripts-container">
 
-            <!-- Скрипт 1: WinWare Main (Unavailable) -->
-            <!-- status-gray = класс для серого оформления -->
+            <!-- 1. WinWare Main (Unavailable) -->
             <div class="script-row glass status-gray">
                 <div class="script-info">
                     <div class="script-header">
@@ -42,24 +42,19 @@
                         <span class="version-tag">v UnReleased</span>
                     </div>
                     <div class="script-meta">
-                        <span class="meta-tag tag-gray"><i class="fas fa-key"></i> Key: Unavailable</span>
+                        <span class="meta-tag tag-gray"><i class="fas fa-lock"></i> Key: Unavailable</span>
                     </div>
                 </div>
-
-                <!-- Поле скрипта (неактивное) -->
                 <div class="script-code-box disabled" title="Script not released yet">
                     <span>Unavailable</span>
                     <i class="fas fa-lock"></i>
                 </div>
-
-                <!-- Статус справа -->
                 <div class="script-status">
                     <span class="status-badge-right badge-gray">In Development</span>
                 </div>
             </div>
 
-            <!-- Скрипт 2: WinWare PvE (Active) -->
-            <!-- status-yellow = класс для желтого оформления (Beta/Bugs) -->
+            <!-- 2. WinWare PvE (Beta) -->
             <div class="script-row glass status-yellow">
                 <div class="script-info">
                     <div class="script-header">
@@ -67,20 +62,75 @@
                         <span class="version-tag">v0.1</span>
                     </div>
                     <div class="script-meta">
-                        <!-- Key System: Discord (Зеленый) -->
                         <span class="meta-tag tag-green"><i class="fab fa-discord"></i> Key: Discord</span>
                     </div>
                 </div>
-
-                <!-- Поле скрипта (копирование при клике) -->
                 <div class="script-code-box clickable" onclick="copyToClipboard(this, 'loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/wxnvxa/WinWarePvE/refs/heads/main/Source.lua&quot;))()')">
-                    <span class="code-text">loadstring(game:HttpGet("..."))()</span>
+                    <span class="code-text">loadstring(game:HttpGet("...WinWarePvE..."))()</span>
                     <i class="far fa-copy"></i>
                 </div>
-
-                <!-- Статус справа -->
                 <div class="script-status">
                     <span class="status-badge-right badge-yellow">Beta / Bugs</span>
+                </div>
+            </div>
+
+            <!-- 3. Predict TP & Target ESP (Beta) -->
+            <div class="script-row glass status-yellow">
+                <div class="script-info">
+                    <div class="script-header">
+                        <h3>Predict TP & Target ESP</h3>
+                        <span class="version-tag">v0.1 Beta</span>
+                    </div>
+                    <div class="script-meta">
+                        <span class="meta-tag tag-blue"><i class="fas fa-unlock"></i> Key: No Key</span>
+                    </div>
+                </div>
+                <div class="script-code-box clickable" onclick="copyToClipboard(this, 'loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/wxnvxa/PredictTP/refs/heads/main/govnoCODE.lua&quot;))()')">
+                    <span class="code-text">loadstring(game:HttpGet("...PredictTP..."))()</span>
+                    <i class="far fa-copy"></i>
+                </div>
+                <div class="script-status">
+                    <span class="status-badge-right badge-yellow">Beta / Bugs</span>
+                </div>
+            </div>
+
+            <!-- 4. Simple ESP (Stable/Working) -->
+            <div class="script-row glass status-green">
+                <div class="script-info">
+                    <div class="script-header">
+                        <h3>Simple ESP</h3>
+                        <span class="version-tag">v0.1.2</span>
+                    </div>
+                    <div class="script-meta">
+                        <span class="meta-tag tag-blue"><i class="fas fa-unlock"></i> Key: No Key</span>
+                    </div>
+                </div>
+                <div class="script-code-box clickable" onclick="copyToClipboard(this, 'loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/wxnvxa/Simple-ESP/refs/heads/main/Script&quot;))()')">
+                    <span class="code-text">loadstring(game:HttpGet("...Simple-ESP..."))()</span>
+                    <i class="far fa-copy"></i>
+                </div>
+                <div class="script-status">
+                    <span class="status-badge-right badge-green">Working</span>
+                </div>
+            </div>
+
+            <!-- 5. Animatronics ESP SRC (Open Source) -->
+            <div class="script-row glass status-purple">
+                <div class="script-info">
+                    <div class="script-header">
+                        <h3>Animatronics ESP SRC</h3>
+                        <span class="version-tag">v0.1</span>
+                    </div>
+                    <div class="script-meta">
+                        <span class="meta-tag tag-blue"><i class="fas fa-unlock"></i> Key: No Key</span>
+                    </div>
+                </div>
+                <div class="script-code-box clickable" onclick="copyToClipboard(this, 'loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/wxnvxa/AnimatronicESP/refs/heads/main/Source.lua&quot;))()')">
+                    <span class="code-text">loadstring(game:HttpGet("...AnimatronicESP..."))()</span>
+                    <i class="far fa-copy"></i>
+                </div>
+                <div class="script-status">
+                    <span class="status-badge-right badge-purple">Open SRC</span>
                 </div>
             </div>
 
