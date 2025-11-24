@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WinWare - Get Scripts</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <canvas id="particles"></canvas>
+
+    <!-- Навигация -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-text">WinWare</a>
+        <div class="nav-center">
+            <a href="index.html">Home</a>
+            <a href="products.html">Store</a>
+            <a href="#" class="active">Get Script</a> <!-- Активная вкладка -->
+            <a href="index.html#features">Features</a>
+        </div>
+        <a href="https://discord.gg/gDe7epPZ" target="_blank" class="nav-btn">
+            <i class="fab fa-discord"></i> Support
+        </a>
+    </nav>
+
+    <!-- Секция скриптов -->
+    <section class="scripts-page">
+        <h2 class="section-title">Available Scripts</h2>
+        <p class="scripts-subtitle">Click on the code box to copy the loadstring.</p>
+
+        <div class="scripts-container">
+
+            <!-- Скрипт 1: WinWare Main (Unavailable) -->
+            <!-- status-gray = класс для серого оформления -->
+            <div class="script-row glass status-gray">
+                <div class="script-info">
+                    <div class="script-header">
+                        <h3>WinWare Main</h3>
+                        <span class="version-tag">v2.0</span>
+                    </div>
+                    <div class="script-meta">
+                        <span class="meta-tag tag-gray"><i class="fas fa-key"></i> Key: Unavailable</span>
+                    </div>
+                </div>
+
+                <!-- Поле скрипта (неактивное) -->
+                <div class="script-code-box disabled" title="Script not released yet">
+                    <span>Unavailable</span>
+                    <i class="fas fa-lock"></i>
+                </div>
+
+                <!-- Статус справа -->
+                <div class="script-status">
+                    <span class="status-badge-right badge-gray">In Development</span>
+                </div>
+            </div>
+
+            <!-- Скрипт 2: WinWare PvE (Active) -->
+            <!-- status-yellow = класс для желтого оформления (Beta/Bugs) -->
+            <div class="script-row glass status-yellow">
+                <div class="script-info">
+                    <div class="script-header">
+                        <h3>WinWare PvE Alpha</h3>
+                        <span class="version-tag">v0.1</span>
+                    </div>
+                    <div class="script-meta">
+                        <!-- Key System: Discord (Зеленый) -->
+                        <span class="meta-tag tag-green"><i class="fab fa-discord"></i> Key: Discord</span>
+                    </div>
+                </div>
+
+                <!-- Поле скрипта (копирование при клике) -->
+                <div class="script-code-box clickable" onclick="copyToClipboard(this, 'loadstring(game:HttpGet(&quot;https://raw.githubusercontent.com/wxnvxa/WinWarePvE/refs/heads/main/Source.lua&quot;))()')">
+                    <span class="code-text">loadstring(game:HttpGet("..."))()</span>
+                    <i class="far fa-copy"></i>
+                </div>
+
+                <!-- Статус справа -->
+                <div class="script-status">
+                    <span class="status-badge-right badge-yellow">Beta / Bugs</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Уведомление о копировании -->
+    <div id="copyToast" class="toast glass">
+        <i class="fas fa-check-circle"></i>
+        <span>Copied successfully!</span>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 WinWare DLC. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
