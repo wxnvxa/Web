@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WinWare - Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Анимированный фон -->
+    <canvas id="particles"></canvas>
+
+    <!-- Навигация -->
+    <nav class="navbar glass">
+        <a href="index.html" class="logo-text" style="text-decoration: none;">WinWare</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#" class="active">Store</a> <!-- Активная вкладка -->
+            <a href="https://discord.gg/gDe7epPZ" target="_blank" class="nav-btn">Support</a>
+        </div>
+    </nav>
+
+    <!-- Секция Продуктов -->
+    <section class="products-page">
+        <h2 class="section-title">Our Products</h2>
+        
+        <div class="products-grid">
+            
+            <!-- Продукт 1: 30 Дней -->
+            <div class="product-card glass">
+                <div class="card-preview">
+                    <span class="days-big">30 DAYS</span>
+                </div>
+                <div class="card-info">
+                    <h3>30 Days License</h3>
+                    <div class="price-tag">Price: <span class="price-val">$3</span></div>
+                    <button class="buy-btn">
+                        <i class="fas fa-shopping-basket"></i> Purchase
+                    </button>
+                </div>
+            </div>
+
+            <!-- Продукт 2: 120 Дней -->
+            <div class="product-card glass">
+                <div class="card-preview">
+                    <span class="days-big">120 DAYS</span>
+                </div>
+                <div class="card-info">
+                    <h3>120 Days License</h3>
+                    <div class="price-tag">Price: <span class="price-val">$7</span> <span class="discount">HOT</span></div>
+                    <button class="buy-btn">
+                        <i class="fas fa-shopping-basket"></i> Purchase
+                    </button>
+                </div>
+            </div>
+
+            <!-- Продукт 3: 1 Год -->
+            <div class="product-card glass">
+                <div class="card-preview">
+                    <span class="days-big">1 YEAR</span>
+                </div>
+                <div class="card-info">
+                    <h3>1 Year License</h3>
+                    <div class="price-tag">Price: <span class="price-val">$15</span> <span class="discount">-20%</span></div>
+                    <button class="buy-btn">
+                        <i class="fas fa-shopping-basket"></i> Purchase
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Модальное окно (SOON) -->
+    <div id="soonModal" class="modal-overlay">
+        <div class="modal-content glass">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <i class="fas fa-clock fa-3x"></i>
+                <h1 class="gradient-text-soon">SOON</h1>
+                <p>Payment system is currently under maintenance.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 WinWare DLC. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
