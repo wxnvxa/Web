@@ -1,4 +1,4 @@
-// 1. Эффект частиц на фоне (как "Matrix" или "Связи")
+// Эффект частиц на фоне
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 
@@ -7,7 +7,6 @@ canvas.height = window.innerHeight;
 
 let particlesArray;
 
-// Создаем частицы
 class Particle {
     constructor() {
         this.x = Math.random() * canvas.width;
@@ -41,7 +40,7 @@ class Particle {
 
 function init() {
     particlesArray = [];
-    let numberOfParticles = (canvas.height * canvas.width) / 15000; // Плотность частиц
+    let numberOfParticles = (canvas.height * canvas.width) / 15000;
     for (let i = 0; i < numberOfParticles; i++) {
         particlesArray.push(new Particle());
     }
@@ -57,7 +56,6 @@ function animate() {
     connect();
 }
 
-// Соединяем частицы линиями
 function connect() {
     let opacityValue = 1;
     for (let a = 0; a < particlesArray.length; a++) {
@@ -67,7 +65,7 @@ function connect() {
             
             if (distance < (canvas.width/7) * (canvas.height/7)) {
                 opacityValue = 1 - (distance / 20000);
-                ctx.strokeStyle = 'rgba(59, 130, 246,' + opacityValue * 0.2 + ')'; // Синие линии
+                ctx.strokeStyle = 'rgba(59, 130, 246,' + opacityValue * 0.2 + ')';
                 ctx.lineWidth = 1;
                 ctx.beginPath();
                 ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
@@ -78,7 +76,6 @@ function connect() {
     }
 }
 
-// Ресайз окна
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -87,26 +84,3 @@ window.addEventListener('resize', () => {
 
 init();
 animate();
-
-
-// 2. 3D Tilt Эффект для карточки (Движение за мышкой)
-const card = document.querySelector('.tilt-effect');
-const container = document.querySelector('.hero');
-
-container.addEventListener('mousemove', (e) => {
-    const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-    const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-    
-    // Поворачиваем карточку
-    card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-});
-
-// Возврат в исходное положение
-container.addEventListener('mouseleave', (e) => {
-    card.style.transform = `rotateY(0deg) rotateX(0deg)`;
-    card.style.transition = 'all 0.5s ease';
-});
-
-container.addEventListener('mouseenter', (e) => {
-    card.style.transition = 'none';
-});
