@@ -3,31 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WinWare - Roblox Scripting Evolved</title>
+    <title>WinWare - Roblox Scripting</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Анимированный фон -->
     <canvas id="particles"></canvas>
 
-    <!-- Навигация -->
-<!-- В index.html найди этот блок и добавь ссылку на products.html -->
-    <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="products.html" style="color: #60a5fa; text-shadow: 0 0 10px rgba(59,130,246,0.5);">Store</a> <!-- Ссылка на магазин -->
-        <a href="#features">Features</a>
-        <a href="#showcase">Showcase</a>
-        <a href="https://discord.gg/gDe7epPZ" target="_blank" class="nav-btn">Support</a>
-    </div>
+    <!-- НОВАЯ НАВИГАЦИЯ (MIX) -->
+    <nav class="navbar">
+        <!-- Слева: Лого -->
+        <a href="#home" class="logo-text">WinWare</a>
+        
+        <!-- По центру: Ссылки -->
+        <div class="nav-center">
+            <a href="#home" class="active">Home</a>
+            <a href="products.html">Store</a>
+            <a href="#features">Features</a>
+            <a href="#showcase">Showcase</a>
+        </div>
 
-    <!-- Главный экран (Home) -->
+        <!-- Справа: Кнопка -->
+        <a href="https://discord.gg/gDe7epPZ" target="_blank" class="nav-btn">
+            <i class="fab fa-discord"></i> Support
+        </a>
+    </nav>
+
+    <!-- Главный экран -->
     <section id="home" class="hero">
         <div class="hero-content glass-card">
             <div class="status-badge">
-                <span class="dot"></span> Status: <span class="status-text">Coding & Testing bugs</span>
+                <span class="dot"></span> Status: <span class="status-text">Upcoming</span>
             </div>
             
             <div class="logo-container">
@@ -38,7 +46,7 @@
             <p class="subtitle">The nextgen Roblox Script.</p>
             <p class="description">
                 Experience minimalist design combined with brutal power. 
-                WinWare provides an undetected, crashing-free environment for your favorite Roblox games.
+                WinWare provides an undetected, crashing-free environment.
             </p>
 
             <div class="cta-buttons">
@@ -52,52 +60,41 @@
         </div>
     </section>
 
-    <!-- Секция Функций (Features) -->
+    <!-- Features -->
     <section id="features" class="features-section">
         <h2 class="section-title">Why WinWare?</h2>
-        
         <div class="features-grid">
-            <div class="feature-card glass">
-                <div class="icon-box">
-                    <i class="fas fa-paint-brush"></i>
-                </div>
+            <div class="feature-card">
+                <div class="icon-box"><i class="fas fa-paint-brush"></i></div>
                 <h3>Stunning Design</h3>
-                <p>We focused on aesthetics. A clean, minimalist, and user-friendly interface with beautiful blur effects that looks amazing.</p>
+                <p>A clean, minimalist, and user-friendly interface with beautiful blur effects.</p>
             </div>
-
-            <div class="feature-card glass">
-                <div class="icon-box">
-                    <i class="fas fa-bolt"></i>
-                </div>
+            <div class="feature-card">
+                <div class="icon-box"><i class="fas fa-bolt"></i></div>
                 <h3>High Performance</h3>
-                <p>Optimized for low-end PCs. Zero lag, instant execution, and maximum FPS while gaming.</p>
+                <p>Optimized for low-end PCs. Zero lag and maximum FPS.</p>
             </div>
-
-            <div class="feature-card glass">
-                <div class="icon-box">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
+            <div class="feature-card">
+                <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
                 <h3>Undetected</h3>
-                <p>Advanced bypass methods ensure your account stays safe. Play without fear of bans.</p>
+                <p>Advanced bypass methods ensure your account stays safe.</p>
             </div>
         </div>
     </section>
 
-    <!-- Секция Видео (Showcase) -->
+    <!-- Showcase -->
     <section id="showcase" class="showcase-section">
         <h2 class="section-title">Gameplay Showcase</h2>
         <div class="video-wrapper glass-card">
             <iframe 
-                src="https://www.youtube.com/embed/rURnNLn4aM4" 
+                src="https://www.youtube.com/embed/rURnNLn4aM4?si=CVZoJWfNmEdtzwko" 
                 title="WinWare Showcase" 
                 frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 allowfullscreen>
             </iframe>
         </div>
     </section>
 
-    <!-- Подвал (Copyright) - ВОТ ОН -->
     <footer>
         <p>&copy; 2025 WinWare DLC. All rights reserved.</p>
     </footer>
