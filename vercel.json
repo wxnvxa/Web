@@ -13,6 +13,10 @@
       "destination": "/scripts.html"
     },
     {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
       "source": "/cabinet",
       "destination": "/account.html"
     }
