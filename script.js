@@ -115,26 +115,31 @@ if (modal && buyBtns.length > 0) {
 
 // --- Account Page Modal Logic ---
 const accountModal = document.getElementById('soonModal');
-const loginBtn = document.getElementById('loginBtn');
-const registerBtn = document.getElementById('registerBtn');
 const accountCloseBtn = document.querySelector('#soonModal .close-modal');
 
-if (accountModal && (loginBtn || registerBtn)) {
-    // Open modal on Sign In button click
-    if (loginBtn) {
-        loginBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            accountModal.classList.add('active');
-        });
-    }
+// All account page buttons that should show "SOON" modal
+const accountButtons = [
+    'resetHwidBtn',
+    'extendLicenseBtn',
+    'activateKeyBtn',
+    'promoCodesBtn',
+    'purchasedGoodsBtn',
+    'downloadLauncherBtn',
+    'changePasswordBtn',
+    'logoutBtn'
+];
 
-    // Open modal on Register button click
-    if (registerBtn) {
-        registerBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            accountModal.classList.add('active');
-        });
-    }
+if (accountModal) {
+    // Add click handlers to all account buttons
+    accountButtons.forEach(btnId => {
+        const btn = document.getElementById(btnId);
+        if (btn) {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                accountModal.classList.add('active');
+            });
+        }
+    });
 
     // Close modal on X button click
     if (accountCloseBtn) {

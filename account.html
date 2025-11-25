@@ -36,45 +36,119 @@
     <!-- Account Section -->
     <section class="account-page">
         <div class="account-container glass-card">
-            <div class="account-header">
-                <div class="account-icon">
-                    <i class="fas fa-user-circle"></i>
+            <h2 class="account-title">Personal account</h2>
+            
+            <div class="account-info-list">
+                <!-- UID -->
+                <div class="account-info-row">
+                    <div class="info-label">
+                        <i class="fas fa-globe"></i>
+                        <span>UID</span>
+                    </div>
+                    <div class="info-value">?</div>
                 </div>
-                <h2>Personal Account</h2>
-                <p class="account-subtitle">Sign in to access your account</p>
+
+                <!-- Login -->
+                <div class="account-info-row">
+                    <div class="info-label">
+                        <i class="fas fa-tag"></i>
+                        <span>Login</span>
+                    </div>
+                    <div class="info-value">?</div>
+                </div>
+
+                <!-- Group -->
+                <div class="account-info-row">
+                    <div class="info-label">
+                        <i class="fas fa-users"></i>
+                        <span>Group</span>
+                    </div>
+                    <div class="info-value">?</div>
+                </div>
+
+                <!-- Date of registration -->
+                <div class="account-info-row">
+                    <div class="info-label">
+                        <i class="fas fa-calendar"></i>
+                        <span>Date of registration</span>
+                    </div>
+                    <div class="info-value">?</div>
+                </div>
+
+                <!-- Last logged in -->
+                <div class="account-info-row">
+                    <div class="info-label">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Last logged in</span>
+                    </div>
+                    <div class="info-value">?</div>
+                </div>
+
+                <!-- E-mail -->
+                <div class="account-info-row">
+                    <div class="info-label">
+                        <i class="fas fa-envelope"></i>
+                        <span>E-mail</span>
+                    </div>
+                    <div class="info-value">?</div>
+                </div>
+
+                <!-- HWID -->
+                <div class="account-info-row">
+                    <div class="info-label">
+                        <i class="fas fa-desktop"></i>
+                        <span>HWID</span>
+                    </div>
+                    <div class="info-value">?</div>
+                    <button class="info-action-btn" id="resetHwidBtn">
+                        <i class="fas fa-lock"></i> Reset
+                    </button>
+                </div>
+
+                <!-- License will expire -->
+                <div class="account-info-row">
+                    <div class="info-label">
+                        <i class="fas fa-calendar-times"></i>
+                        <span>License will expire</span>
+                    </div>
+                    <div class="info-value">?</div>
+                    <button class="info-action-btn" id="extendLicenseBtn">
+                        <i class="fas fa-lock"></i> Extend
+                    </button>
+                </div>
+
+                <!-- Key activation -->
+                <div class="account-info-row">
+                    <div class="info-label">
+                        <i class="fas fa-key"></i>
+                        <span>Key activation</span>
+                    </div>
+                    <div class="info-value">
+                        <input type="text" placeholder="Enter the key" class="key-input">
+                    </div>
+                    <button class="info-action-btn" id="activateKeyBtn">
+                        <i class="fas fa-lock"></i> Activate
+                    </button>
+                </div>
             </div>
 
-            <div class="account-actions">
-                <button class="account-btn primary" id="loginBtn">
-                    <i class="fas fa-sign-in-alt"></i> Sign In
+            <!-- Bottom Action Buttons -->
+            <div class="account-bottom-actions">
+                <button class="bottom-action-btn" id="promoCodesBtn">
+                    <i class="fas fa-percent"></i> My promo codes
                 </button>
-                <button class="account-btn secondary" id="registerBtn">
-                    <i class="fas fa-user-plus"></i> Register
+                <button class="bottom-action-btn" id="purchasedGoodsBtn">
+                    <i class="fas fa-shopping-bag"></i> Purchased goods
                 </button>
-            </div>
-
-            <div class="account-info">
-                <div class="info-card">
-                    <i class="fas fa-key"></i>
-                    <div>
-                        <h4>License Key</h4>
-                        <p>Manage your license keys</p>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-history"></i>
-                    <div>
-                        <h4>Purchase History</h4>
-                        <p>View your transaction history</p>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-cog"></i>
-                    <div>
-                        <h4>Settings</h4>
-                        <p>Account preferences</p>
-                    </div>
-                </div>
+                <button class="bottom-action-btn" id="downloadLauncherBtn">
+                    <i class="fas fa-cloud-download-alt"></i> Download launcher
+                </button>
+                <button class="bottom-action-btn" id="changePasswordBtn">
+                    <i class="fas fa-edit"></i> Change password
+                </button>
+                <button class="bottom-action-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Log out
+                </button>
             </div>
         </div>
     </section>
