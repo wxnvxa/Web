@@ -1,8 +1,8 @@
-// Эффект квадратиков на фоне (не закреплены к экрану)
+// Статичная сетка из квадратиков на фоне
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 
-let squaresArray;
+let gridSize = 50; // Размер ячейки сетки
 let scrollY = 0;
 
 // Устанавливаем размер canvas на всю высоту документа
@@ -13,76 +13,59 @@ function updateCanvasSize() {
 
 updateCanvasSize();
 
-class Square {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height; // Размещаем по всей высоте контента
-        this.size = 20 + Math.random() * 40; // Размер от 20 до 60px
-        this.speed = 0.1 + Math.random() * 0.3;
+function drawGrid() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Цвет обводки - белый с прозрачностью
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+    ctx.lineWidth = 1;
+    
+    // Вычисляем начальные координаты с учетом скролла
+    const startX = 0;
+    const startY = 0 - (scrollY % gridSize);
+    
+    // Рисуем вертикальные линии
+    for (let x = startX; x < canvas.width; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
     }
-
-    draw() {
-        // Рисуем квадратик с учетом скролла (не закреплен к экрану)
-        const drawY = this.y - scrollY;
-        
-        // Рисуем только если квадратик виден на экране
-        if (drawY > -this.size && drawY < window.innerHeight + this.size) {
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
-            ctx.lineWidth = 1;
-            ctx.strokeRect(this.x, drawY, this.size, this.size);
-        }
-    }
-
-    update() {
-        // Квадратики движутся вниз медленно
-        this.y += this.speed;
-        
-        // Если квадратик ушел за пределы canvas, возвращаем его вверх
-        if (this.y > canvas.height + this.size) {
-            this.y = -this.size;
-            this.x = Math.random() * canvas.width;
-        }
-        
-        this.draw();
-    }
-}
-
-function init() {
-    squaresArray = [];
-    // Создаем больше квадратиков для заполнения экрана
-    let numberOfSquares = Math.floor((canvas.height * canvas.width) / 8000);
-    for (let i = 0; i < numberOfSquares; i++) {
-        squaresArray.push(new Square());
+    
+    // Рисуем горизонтальные линии
+    for (let y = startY; y < canvas.height; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
     }
 }
 
 function animate() {
     requestAnimationFrame(animate);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    for (let i = 0; i < squaresArray.length; i++) {
-        squaresArray[i].update();
-    }
+    drawGrid();
 }
 
 window.addEventListener('resize', () => {
     updateCanvasSize();
-    init();
+    drawGrid();
 });
 
-// Обновляем canvas при скролле и изменении размера документа
+// Обновляем canvas при скролле
 window.addEventListener('scroll', () => {
     scrollY = window.scrollY;
     updateCanvasSize();
+    drawGrid();
 });
 
 // Обновляем размер при загрузке
 window.addEventListener('load', () => {
     updateCanvasSize();
-    init();
+    drawGrid();
 });
 
-init();
+// Начальная отрисовка
+drawGrid();
 animate();
 
 // --- Логика Модального Окна (Store) ---
