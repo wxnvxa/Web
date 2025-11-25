@@ -185,56 +185,23 @@ h1 {
     color: #fff;
 }
 
-/* Спец‑эффект для заголовка WinWare на Home */
+/* Спец‑эффект для заголовка WinWare на Home: статичный градиент слева направо */
 .hero-title {
-    position: relative;
     display: inline-block;
     font-size: 4rem;
     margin-bottom: 10px;
     font-weight: 900;
     letter-spacing: -1px;
-    /* Синий градиент текста */
     background: linear-gradient(
         90deg,
-        var(--primary) 0%,
-        #60a5fa 35%,
+        #1d4ed8 0%,
+        #3b82f6 35%,
         #60a5fa 65%,
-        var(--primary) 100%
+        #93c5fd 100%
     );
-    background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 22px rgba(255, 255, 255, 0.35);
-    overflow: hidden;
-}
-
-.hero-title::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -120%;
-    width: 60%;
-    height: 100%;
-    background: linear-gradient(
-        115deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.95) 45%,
-        rgba(255, 255, 255, 0) 100%
-    );
-    transform: skewX(-18deg);
-    animation: hero-title-shine 3.6s ease-in-out infinite;
-}
-
-@keyframes hero-title-shine {
-    0% {
-        left: -120%;
-    }
-    60% {
-        left: 130%;
-    }
-    100% {
-        left: 130%;
-    }
+    text-shadow: 0 0 18px rgba(15, 23, 42, 0.6);
 }
 .subtitle { font-size: 1.5rem; color: var(--primary); margin-bottom: 20px; font-weight: 600; }
 .description { color: #9ca3af; line-height: 1.6; max-width: 550px; margin: 0 auto 40px auto; }
