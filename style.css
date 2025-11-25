@@ -342,6 +342,10 @@ footer { text-align: center; padding: 40px; color: #555; margin-top: auto; }
 .status-yellow::before { background-color: #eab308; box-shadow: 0 0 10px rgba(234, 179, 8, 0.5); }
 .status-yellow .script-header h3 { color: #fff; }
 
+/* Red (Patched) */
+.status-red::before { background-color: #ef4444; box-shadow: 0 0 12px rgba(239, 68, 68, 0.6); }
+.status-red .script-header h3 { color: #fff; }
+
 
 /* Левая часть (Инфо) */
 .script-info {
@@ -388,6 +392,7 @@ footer { text-align: center; padding: 40px; color: #555; margin-top: auto; }
 
 .tag-gray { background: rgba(75, 85, 99, 0.2); color: #9ca3af; }
 .tag-green { background: rgba(34, 197, 94, 0.2); color: #4ade80; } /* Зеленый Discord */
+.tag-red { background: rgba(239, 68, 68, 0.18); color: #f87171; }
 
 /* Поле кода (Центр) */
 .script-code-box {
@@ -453,6 +458,7 @@ footer { text-align: center; padding: 40px; color: #555; margin-top: auto; }
 
 .badge-gray { background: #374151; color: #9ca3af; }
 .badge-yellow { background: #eab308; color: #000; box-shadow: 0 0 10px rgba(234, 179, 8, 0.4); }
+.badge-red { background: #ef4444; color: #fff; box-shadow: 0 0 12px rgba(239, 68, 68, 0.4); }
 
 /* --- УВЕДОМЛЕНИЕ (TOAST) --- */
 .toast {
