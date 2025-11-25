@@ -185,17 +185,24 @@ h1 {
     color: #fff;
 }
 
-/* Спец‑эффект для заголовка WinWare на Home: статичный градиент как у топ-бара */
+/* Спец‑эффект для заголовка WinWare на Home: яркий статичный градиент в стиле топ-бара */
 .hero-title {
     display: inline-block;
     font-size: 4rem;
     margin-bottom: 10px;
     font-weight: 900;
     letter-spacing: -1px;
-    background: linear-gradient(90deg, #ffffff, var(--primary));
+    background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #e5f0ff 22%,
+        #60a5fa 55%,
+        #2563eb 82%,
+        #1d4ed8 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 18px rgba(15, 23, 42, 0.85);
+    text-shadow: 0 0 28px rgba(59, 130, 246, 0.9);
 }
 .subtitle { font-size: 1.5rem; color: var(--primary); margin-bottom: 20px; font-weight: 600; }
 .description { color: #9ca3af; line-height: 1.6; max-width: 550px; margin: 0 auto 40px auto; }
