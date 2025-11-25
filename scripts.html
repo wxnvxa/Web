@@ -22,7 +22,22 @@
             <a href="/#features">Features</a>
             <a href="/#showcase">Showcase</a>
         </div>
-        <div style="display: flex; align-items: center; gap: 15px;">
+        <div class="mobile-nav" id="mobileNav">
+            <a href="/">Home</a>
+            <a href="/buy">Store</a>
+            <a href="/scripts" class="active">Get Script</a>
+            <a href="/#features">Features</a>
+            <a href="/#showcase">Showcase</a>
+            <div class="mobile-actions">
+                <a href="https://discord.gg/gDe7epPZ" target="_blank" class="nav-btn">
+                    <i class="fab fa-discord"></i> Support
+                </a>
+                <a href="/cabinet" class="nav-account-btn">
+                    <i class="fas fa-user"></i> Personal Account
+                </a>
+            </div>
+        </div>
+        <div class="nav-right">
             <a href="https://discord.gg/gDe7epPZ" target="_blank" class="nav-btn">
                 <i class="fab fa-discord"></i> Support
             </a>
@@ -30,6 +45,9 @@
                 <i class="fas fa-user"></i> Personal Account
             </a>
         </div>
+        <button class="burger" id="mobileBurger" aria-label="Toggle navigation" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
     </nav>
 
     <!-- Секция скриптов -->

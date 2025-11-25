@@ -16,10 +16,7 @@
     <nav class="navbar">
         <!-- Слева: Лого -->
         <a href="/" class="logo-text">WinWare</a>
-        <span class="burger" id="mobileBurger" tabindex="0">
-            <i class="fas fa-bars"></i>
-        </span>
-        <!-- По центру: Ссылки -->
+        <!-- По центру: Ссылки (десктоп) -->
         <div class="nav-center">
             <a href="/">Home</a>
             <a href="/buy">Store</a>
@@ -27,16 +24,24 @@
             <a href="/#features">Features</a>
             <a href="/#showcase">Showcase</a>
         </div>
-        <!-- Мобильное меню (по умолчанию скрыто) -->
+        <!-- Мобильное меню -->
         <div class="mobile-nav" id="mobileNav">
             <a href="/">Home</a>
             <a href="/buy">Store</a>
             <a href="/scripts">Get Script</a>
             <a href="/#features">Features</a>
             <a href="/#showcase">Showcase</a>
+            <div class="mobile-actions">
+                <a href="https://discord.gg/gDe7epPZ" target="_blank" class="nav-btn">
+                    <i class="fab fa-discord"></i> Support
+                </a>
+                <a href="/cabinet" class="nav-account-btn">
+                    <i class="fas fa-user"></i> Personal Account
+                </a>
+            </div>
         </div>
         <!-- Справа: Кнопки -->
-        <div style="display: flex; align-items: center; gap: 15px;">
+        <div class="nav-right">
             <a href="https://discord.gg/gDe7epPZ" target="_blank" class="nav-btn">
                 <i class="fab fa-discord"></i> Support
             </a>
@@ -44,6 +49,9 @@
                 <i class="fas fa-user"></i> Personal Account
             </a>
         </div>
+        <button class="burger" id="mobileBurger" aria-label="Toggle navigation" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
     </nav>
 
     <!-- Главный экран -->
@@ -115,23 +123,5 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
-    // Мобильное меню бургер
-    document.addEventListener('DOMContentLoaded', function() {
-        var burger = document.getElementById('mobileBurger');
-        var nav = document.getElementById('mobileNav');
-        burger && burger.addEventListener('click', function() {
-            nav.classList.toggle('open');
-            burger.classList.toggle('active');
-        });
-        // Закрывать меню при клике вне
-        document.addEventListener('click', function(e) {
-            if (nav.classList.contains('open') && !nav.contains(e.target) && !burger.contains(e.target)) {
-                nav.classList.remove('open');
-                burger.classList.remove('active');
-            }
-        });
-    });
-    </script>
 </body>
 </html>

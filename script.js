@@ -232,3 +232,45 @@ function copyToClipboard(element, text) {
         console.error('Failed to copy: ', err);
     });
 }
+
+// --- Мобильное меню ---
+document.addEventListener('DOMContentLoaded', () => {
+    const burger = document.getElementById('mobileBurger');
+    const mobileNav = document.getElementById('mobileNav');
+    if (!burger || !mobileNav) return;
+
+    const body = document.body;
+
+    function closeMenu() {
+        mobileNav.classList.remove('open');
+        burger.classList.remove('active');
+        burger.setAttribute('aria-expanded', 'false');
+        body.classList.remove('mobile-nav-open');
+    }
+
+    burger.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const isOpen = mobileNav.classList.toggle('open');
+        burger.classList.toggle('active', isOpen);
+        burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        body.classList.toggle('mobile-nav-open', isOpen);
+    });
+
+    mobileNav.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            closeMenu();
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        if (mobileNav.classList.contains('open') && !mobileNav.contains(e.target) && !burger.contains(e.target)) {
+            closeMenu();
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) {
+            closeMenu();
+        }
+    });
+});

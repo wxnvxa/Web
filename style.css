@@ -30,6 +30,10 @@ body {
     position: relative;
 }
 
+body.mobile-nav-open {
+    overflow: hidden;
+}
+
 /* Фон */
 #particles {
     position: absolute;
@@ -45,9 +49,10 @@ body {
 /* --- ИСПРАВЛЕННАЯ НАВИГАЦИЯ (MIX) --- */
 .navbar {
     display: flex;
-    justify-content: space-between; /* Лого слева, Ссылки центр, Кнопка справа */
+    justify-content: flex-start; /* Лого слева, остальное сдвигаем вправо */
     align-items: center;
     padding: 15px 50px;
+    gap: 20px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -77,6 +82,13 @@ body {
     position: absolute; /* Центрируем абсолютно */
     left: 50%;
     transform: translateX(-50%);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
 }
 
 .nav-center a {
@@ -219,18 +231,27 @@ footer { text-align: center; padding: 40px; color: #555; margin-top: auto; }
 /* Адаптив */
 @media (max-width: 900px) {
     .burger {
-        display: inline-block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .nav-center {
         display: none !important;
     }
+    .nav-right {
+        display: none;
+    }
     .navbar {
-        padding: 12px 12px;
+        padding: 12px 18px;
     }
     .nav-account-btn,.nav-btn {
         padding: 7px 15px;
         font-size: 0.86rem;
         border-radius: 15px;
+    }
+    .mobile-nav {
+        padding: 24px 18px 20px 18px;
+        top: 60px;
     }
     .glass-card {
         padding: 18px 8px;
@@ -770,11 +791,12 @@ footer { text-align: center; padding: 40px; color: #555; margin-top: auto; }
     display: none;
     font-size: 2rem;
     color: #fff;
-    margin-left: 20px;
+    margin-left: auto;
     cursor: pointer;
     background: transparent;
     border: none;
     outline: none;
+    padding: 4px;
     transition: color 0.2s;
     z-index: 1400;
 }
@@ -788,14 +810,17 @@ footer { text-align: center; padding: 40px; color: #555; margin-top: auto; }
     flex-direction: column;
     gap: 22px;
     position: fixed;
-    top: 62px;
+    top: 72px;
     left: 0;
     right: 0;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
     background: rgba(15, 15, 20, 0.95);
     border-bottom: 1px solid var(--glass-border);
     box-shadow: 0 12px 50px rgba(0,0,0,0.25);
     padding: 34px 32px 30px 32px;
     z-index: 1200;
+    backdrop-filter: blur(18px);
     animation: slideDown .22s ease;
 }
 .mobile-nav a {
@@ -813,6 +838,17 @@ footer { text-align: center; padding: 40px; color: #555; margin-top: auto; }
 }
 .mobile-nav.open {
     display: flex;
+}
+.mobile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+.mobile-nav .nav-btn,
+.mobile-nav .nav-account-btn {
+    width: 100%;
+    justify-content: center;
 }
 @keyframes slideDown {
   from { opacity:0; transform: translateY(-20px); }
