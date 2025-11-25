@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WinWare - Personal Account</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <canvas id="particles"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-text">WinWare</a>
+        
+        <div class="nav-center">
+            <a href="index.html">Home</a>
+            <a href="products.html">Store</a>
+            <a href="scripts.html">Get Script</a>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#showcase">Showcase</a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="https://discord.gg/gDe7epPZ" target="_blank" class="nav-btn">
+                <i class="fab fa-discord"></i> Support
+            </a>
+            <a href="account.html" class="nav-account-btn">
+                <i class="fas fa-user"></i> Personal Account
+            </a>
+        </div>
+    </nav>
+
+    <!-- Account Section -->
+    <section class="account-page">
+        <div class="account-container glass-card">
+            <div class="account-header">
+                <div class="account-icon">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h2>Personal Account</h2>
+                <p class="account-subtitle">Sign in to access your account</p>
+            </div>
+
+            <div class="account-actions">
+                <button class="account-btn primary" id="loginBtn">
+                    <i class="fas fa-sign-in-alt"></i> Sign In
+                </button>
+                <button class="account-btn secondary" id="registerBtn">
+                    <i class="fas fa-user-plus"></i> Register
+                </button>
+            </div>
+
+            <div class="account-info">
+                <div class="info-card">
+                    <i class="fas fa-key"></i>
+                    <div>
+                        <h4>License Key</h4>
+                        <p>Manage your license keys</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-history"></i>
+                    <div>
+                        <h4>Purchase History</h4>
+                        <p>View your transaction history</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-cog"></i>
+                    <div>
+                        <h4>Settings</h4>
+                        <p>Account preferences</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Window (SOON) -->
+    <div id="soonModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <i class="fas fa-clock fa-3x" style="color:#3b82f6; margin-bottom:10px;"></i>
+            <h1 class="gradient-text-soon">SOON</h1>
+            <p style="color:#888;">Authentication system is under development.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 WinWare DLC. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

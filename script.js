@@ -113,6 +113,44 @@ if (modal && buyBtns.length > 0) {
     });
 }
 
+// --- Account Page Modal Logic ---
+const accountModal = document.getElementById('soonModal');
+const loginBtn = document.getElementById('loginBtn');
+const registerBtn = document.getElementById('registerBtn');
+const accountCloseBtn = document.querySelector('#soonModal .close-modal');
+
+if (accountModal && (loginBtn || registerBtn)) {
+    // Open modal on Sign In button click
+    if (loginBtn) {
+        loginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            accountModal.classList.add('active');
+        });
+    }
+
+    // Open modal on Register button click
+    if (registerBtn) {
+        registerBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            accountModal.classList.add('active');
+        });
+    }
+
+    // Close modal on X button click
+    if (accountCloseBtn) {
+        accountCloseBtn.addEventListener('click', () => {
+            accountModal.classList.remove('active');
+        });
+    }
+
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target === accountModal) {
+            accountModal.classList.remove('active');
+        }
+    });
+}
+
 // --- Логика копирования скрипта ---
 
 function copyToClipboard(element, text) {
