@@ -284,6 +284,24 @@ h1 {
     box-shadow: 0 0 18px rgba(59, 130, 246, 0.7);
 }
 
+.team-card-red {
+    border-color: #ef4444;
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.4);
+}
+
+.team-avatar-red-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 30% 20%, #fee2e2 0%, #b91c1c 65%, #450a0a 100%);
+    border-color: #f87171;
+    box-shadow: 0 0 18px rgba(248, 113, 113, 0.8);
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
 .team-info {
     display: flex;
     flex-direction: column;
