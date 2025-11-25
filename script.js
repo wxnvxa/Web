@@ -1,71 +1,137 @@
-// Статичная сетка из квадратиков на фоне
+// --- Dynamic Neo-Grid Background ---
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 
-let gridSize = 25; // Размер ячейки сетки (увеличено в 1.5 раза)
-let scrollY = 0;
+let gridSize = 32; // базовый шаг сетки
+let gridOffset = 0;
+const gridSpeed = 0.12;
 
-// Устанавливаем размер canvas на всю высоту документа
-function updateCanvasSize() {
+const glowNodes = [];
+const NODE_COUNT = 90;
+
+function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = Math.max(document.documentElement.scrollHeight, window.innerHeight);
 }
 
-updateCanvasSize();
+resizeCanvas();
+
+class GlowNode {
+    constructor() {
+        this.reset(true);
+    }
+
+    reset(initial = false) {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = 2 + Math.random() * 3;
+        this.alpha = 0;
+        this.direction = 1;
+        this.fadeSpeed = 0.008 + Math.random() * 0.01;
+        this.floatSpeed = 0.05 + Math.random() * 0.15;
+        this.delay = initial ? Math.random() * 60 : 0;
+    }
+
+    update() {
+        if (this.delay > 0) {
+            this.delay -= 1;
+            return;
+        }
+
+        this.alpha += this.fadeSpeed * this.direction;
+
+        if (this.alpha >= 0.9) {
+            this.direction = -1;
+        } else if (this.alpha <= 0) {
+            this.reset();
+        }
+
+        this.y += this.floatSpeed;
+
+        if (this.y > canvas.height + 20) {
+            this.y = -20;
+        }
+    }
+
+    draw() {
+        ctx.save();
+        ctx.shadowColor = `rgba(96, 165, 250, ${this.alpha})`;
+        ctx.shadowBlur = 12;
+        ctx.fillStyle = `rgba(96, 165, 250, ${this.alpha})`;
+        ctx.fillRect(this.x, this.y, this.size, this.size);
+        ctx.restore();
+    }
+}
+
+function initGlowNodes() {
+    glowNodes.length = 0;
+    for (let i = 0; i < NODE_COUNT; i++) {
+        glowNodes.push(new GlowNode());
+    }
+}
+
+function drawGradientOverlay() {
+    const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+    gradient.addColorStop(0, 'rgba(8, 47, 73, 0.35)');
+    gradient.addColorStop(0.5, 'rgba(0, 0, 0, 0)');
+    gradient.addColorStop(1, 'rgba(15, 23, 42, 0.4)');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+function drawScanLine() {
+    const scanHeight = 160;
+    const scanY = (Date.now() * 0.05) % (canvas.height + scanHeight) - scanHeight;
+    const gradient = ctx.createLinearGradient(0, scanY, 0, scanY + scanHeight);
+    gradient.addColorStop(0, 'rgba(59, 130, 246, 0)');
+    gradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.08)');
+    gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, scanY, canvas.width, scanHeight);
+}
 
 function drawGrid() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    // Цвет обводки - белый с прозрачностью
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+    gridOffset = (gridOffset + gridSpeed) % gridSize;
+
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
     ctx.lineWidth = 1;
-    
-    // Вычисляем начальные координаты с учетом скролла
-    const startX = 0;
-    const startY = 0 - (scrollY % gridSize);
-    
-    // Рисуем вертикальные линии
-    for (let x = startX; x < canvas.width; x += gridSize) {
+
+    for (let x = -gridSize; x < canvas.width + gridSize; x += gridSize) {
         ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, canvas.height);
+        ctx.moveTo(x + gridOffset, 0);
+        ctx.lineTo(x + gridOffset, canvas.height);
         ctx.stroke();
     }
-    
-    // Рисуем горизонтальные линии
-    for (let y = startY; y < canvas.height; y += gridSize) {
+
+    for (let y = -gridSize; y < canvas.height + gridSize; y += gridSize) {
         ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(canvas.width, y);
+        ctx.moveTo(0, y + gridOffset);
+        ctx.lineTo(canvas.width, y + gridOffset);
         ctx.stroke();
     }
 }
 
 function animate() {
     requestAnimationFrame(animate);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     drawGrid();
+    drawGradientOverlay();
+    drawScanLine();
+
+    glowNodes.forEach(node => {
+        node.update();
+        node.draw();
+    });
 }
 
 window.addEventListener('resize', () => {
-    updateCanvasSize();
-    drawGrid();
+    resizeCanvas();
+    initGlowNodes();
 });
 
-// Обновляем canvas при скролле
-window.addEventListener('scroll', () => {
-    scrollY = window.scrollY;
-    updateCanvasSize();
-    drawGrid();
-});
-
-// Обновляем размер при загрузке
-window.addEventListener('load', () => {
-    updateCanvasSize();
-    drawGrid();
-});
-
-// Начальная отрисовка
-drawGrid();
+// Инициализация при первой загрузке
+initGlowNodes();
 animate();
 
 // --- Логика Модального Окна (Store) ---
