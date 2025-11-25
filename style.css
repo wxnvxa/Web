@@ -367,11 +367,16 @@ footer { text-align: center; padding: 40px; color: #555; margin-top: auto; }
 }
 
 .version-tag {
-    font-size: 0.75rem;
-    background: rgba(255,255,255,0.1);
-    padding: 2px 6px;
-    border-radius: 4px;
-    color: #888;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: rgba(99, 102, 241, 0.12);
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    color: #c7d2fe;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-weight: 700;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.15);
 }
 
 .script-meta {
@@ -386,8 +391,10 @@ footer { text-align: center; padding: 40px; color: #555; margin-top: auto; }
     border-radius: 20px;
     font-weight: 600;
     display: inline-flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 5px;
+    line-height: 1.2;
 }
 
 .tag-gray { background: rgba(75, 85, 99, 0.2); color: #9ca3af; }
