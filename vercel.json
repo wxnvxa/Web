@@ -1,0 +1,21 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/buy",
+      "destination": "/products.html"
+    },
+    {
+      "source": "/scripts",
+      "destination": "/scripts.html"
+    },
+    {
+      "source": "/cabinet",
+      "destination": "/account.html"
+    }
+  ]
+}
+

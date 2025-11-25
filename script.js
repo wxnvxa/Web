@@ -1,84 +1,84 @@
-// Эффект частиц на фоне
+// Эффект квадратиков на фоне (не закреплены к экрану)
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+let squaresArray;
+let scrollY = 0;
 
-let particlesArray;
+// Устанавливаем размер canvas на всю высоту документа
+function updateCanvasSize() {
+    canvas.width = window.innerWidth;
+    canvas.height = Math.max(document.documentElement.scrollHeight, window.innerHeight);
+}
 
-class Particle {
+updateCanvasSize();
+
+class Square {
     constructor() {
         this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.directionX = (Math.random() * 0.4) - 0.2;
-        this.directionY = (Math.random() * 0.4) - 0.2;
-        this.size = Math.random() * 2;
-        this.color = '#3b82f6';
+        this.y = Math.random() * canvas.height; // Размещаем по всей высоте контента
+        this.size = 20 + Math.random() * 40; // Размер от 20 до 60px
+        this.speed = 0.1 + Math.random() * 0.3;
     }
 
     draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-        ctx.fillStyle = this.color;
-        ctx.globalAlpha = 0.5;
-        ctx.fill();
+        // Рисуем квадратик с учетом скролла (не закреплен к экрану)
+        const drawY = this.y - scrollY;
+        
+        // Рисуем только если квадратик виден на экране
+        if (drawY > -this.size && drawY < window.innerHeight + this.size) {
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.lineWidth = 1;
+            ctx.strokeRect(this.x, drawY, this.size, this.size);
+        }
     }
 
     update() {
-        if (this.x > canvas.width || this.x < 0) {
-            this.directionX = -this.directionX;
+        // Квадратики движутся вниз медленно
+        this.y += this.speed;
+        
+        // Если квадратик ушел за пределы canvas, возвращаем его вверх
+        if (this.y > canvas.height + this.size) {
+            this.y = -this.size;
+            this.x = Math.random() * canvas.width;
         }
-        if (this.y > canvas.height || this.y < 0) {
-            this.directionY = -this.directionY;
-        }
-        this.x += this.directionX;
-        this.y += this.directionY;
+        
         this.draw();
     }
 }
 
 function init() {
-    particlesArray = [];
-    let numberOfParticles = (canvas.height * canvas.width) / 15000;
-    for (let i = 0; i < numberOfParticles; i++) {
-        particlesArray.push(new Particle());
+    squaresArray = [];
+    // Создаем больше квадратиков для заполнения экрана
+    let numberOfSquares = Math.floor((canvas.height * canvas.width) / 8000);
+    for (let i = 0; i < numberOfSquares; i++) {
+        squaresArray.push(new Square());
     }
 }
 
 function animate() {
     requestAnimationFrame(animate);
-    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update();
-    }
-    connect();
-}
-
-function connect() {
-    let opacityValue = 1;
-    for (let a = 0; a < particlesArray.length; a++) {
-        for (let b = a; b < particlesArray.length; b++) {
-            let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
-            + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
-            
-            if (distance < (canvas.width/7) * (canvas.height/7)) {
-                opacityValue = 1 - (distance / 20000);
-                ctx.strokeStyle = 'rgba(59, 130, 246,' + opacityValue * 0.2 + ')';
-                ctx.lineWidth = 1;
-                ctx.beginPath();
-                ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-                ctx.stroke();
-            }
-        }
+    for (let i = 0; i < squaresArray.length; i++) {
+        squaresArray[i].update();
     }
 }
 
 window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    updateCanvasSize();
+    init();
+});
+
+// Обновляем canvas при скролле и изменении размера документа
+window.addEventListener('scroll', () => {
+    scrollY = window.scrollY;
+    updateCanvasSize();
+});
+
+// Обновляем размер при загрузке
+window.addEventListener('load', () => {
+    updateCanvasSize();
     init();
 });
 
@@ -124,7 +124,6 @@ const accountButtons = [
     'activateKeyBtn',
     'promoCodesBtn',
     'purchasedGoodsBtn',
-    'downloadLauncherBtn',
     'changePasswordBtn',
     'logoutBtn'
 ];
