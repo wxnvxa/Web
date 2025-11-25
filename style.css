@@ -150,11 +150,27 @@ body.mobile-nav-open {
     margin: 0 auto; /* Центрируем саму карточку */
 }
 
-/* Анимация лого */
+/* Рамка вокруг WW‑иконки на главном экране */
+.logo-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0 28px;
+    padding: 10px 28px;
+    border-radius: 26px;
+    background: radial-gradient(circle at 20% 0%, rgba(96, 165, 250, 0.35) 0%, rgba(15, 23, 42, 0.98) 55%, rgba(0, 0, 0, 1) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.85);
+    box-shadow:
+        0 0 35px rgba(37, 99, 235, 0.7),
+        0 0 80px rgba(15, 23, 42, 0.9);
+}
+
+/* Сама иконка внутри рамки */
 .hero-logo {
-    width: 160px;
-    margin: 20px 0;
-    filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.5));
+    width: 170px;
+    display: block;
+    border-radius: 18px;
+    box-shadow: 0 0 26px rgba(59, 130, 246, 0.7);
     animation: float 6s ease-in-out infinite;
 }
 
