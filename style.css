@@ -853,4 +853,55 @@ footer { text-align: center; padding: 40px; color: #555; margin-top: auto; }
 @keyframes slideDown {
   from { opacity:0; transform: translateY(-20px); }
   to { opacity:1; transform: translateY(0); }
+} 
+
+/* --- MOBILE NAVBAR FIX (Forced) --- */
+@media (max-width: 900px) {
+    .burger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    .burger:active {
+        background: rgba(255, 255, 255, 0.1);
+    }
+    .nav-center {
+        display: none !important;
+    }
+    .nav-right {
+        display: none;
+    }
+    .navbar {
+        padding: 10px 20px;
+        background: rgba(5, 5, 5, 0.85);
+        backdrop-filter: blur(25px);
+        height: 70px;
+    }
+    .logo-text {
+        font-size: 1.3rem;
+    }
+    .nav-account-btn,.nav-btn {
+        padding: 10px 15px;
+        font-size: 0.95rem;
+        width: 100%;
+        justify-content: center;
+    }
+    .mobile-nav {
+        padding: 25px 20px 30px 20px;
+        top: 70px;
+        background: rgba(10, 10, 12, 0.98);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .glass-card {
+        padding: 20px 15px;
+        border-radius: 16px;
+    }
+    .hero {
+        padding-top: 100px;
+    }
 }
+
