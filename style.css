@@ -185,35 +185,58 @@ h1 {
     color: #fff;
 }
 
-/* Спец‑эффект для заголовка WinWare на Home: анимированный градиент слева направо */
+/* Спец‑эффект для заголовка WinWare на Home: яркое переливание слева направо */
 .hero-title {
     display: inline-block;
     font-size: 4rem;
     margin-bottom: 10px;
     font-weight: 900;
     letter-spacing: -1px;
+    /* Базовый насыщенный синий градиент текста */
     background: linear-gradient(
         90deg,
         #1d4ed8 0%,
-        #3b82f6 25%,
-        #60a5fa 50%,
-        #e5f2ff 60%,
-        #60a5fa 75%,
-        #1d4ed8 100%
+        #2563eb 30%,
+        #60a5fa 70%,
+        #bfdbfe 100%
     );
-    background-size: 220% 100%;
+    background-size: 120% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 18px rgba(15, 23, 42, 0.6);
-    animation: hero-title-gradient-move 4.2s linear infinite;
+    text-shadow: 0 0 22px rgba(15, 23, 42, 0.9);
+    position: relative;
+    overflow: hidden;
 }
 
-@keyframes hero-title-gradient-move {
+.hero-title::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -140%;
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.15) 20%,
+        rgba(255, 255, 255, 0.95) 45%,
+        rgba(255, 255, 255, 0.15) 80%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-18deg);
+    animation: hero-title-shimmer 2.1s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes hero-title-shimmer {
     0% {
-        background-position: 0% 50%;
+        left: -140%;
+    }
+    55% {
+        left: 145%;
     }
     100% {
-        background-position: 100% 50%;
+        left: 145%;
     }
 }
 .subtitle { font-size: 1.5rem; color: var(--primary); margin-bottom: 20px; font-weight: 600; }
