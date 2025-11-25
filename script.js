@@ -2,7 +2,7 @@
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 
-let gridSize = 50; // Размер ячейки сетки
+let gridSize = 17; // Размер ячейки сетки (в 3 раза меньше)
 let scrollY = 0;
 
 // Устанавливаем размер canvas на всю высоту документа
