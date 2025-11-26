@@ -361,7 +361,21 @@ h1 {
 .card-info { padding: 25px; }
 .price-tag { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; color: #888; }
 .price-val { font-size: 1.4rem; font-weight: 700; color: #fff; }
-.buy-btn { width: 100%; padding: 14px; background: linear-gradient(90deg, #3b82f6, #2563eb); border: none; border-radius: 10px; color: white; font-weight: 600; cursor: pointer; transition: 0.3s; }
+.buy-btn { 
+    width: 100%; 
+    padding: 14px; 
+    background: linear-gradient(90deg, #3b82f6, #2563eb); 
+    border: none; 
+    border-radius: 10px; 
+    color: white; 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: 0.3s; 
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
 .buy-btn:hover { filter: brightness(1.2); box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
 
 /* Модальное окно SOON */
